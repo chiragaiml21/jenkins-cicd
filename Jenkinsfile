@@ -1,6 +1,6 @@
 node {
     def DOCKER_IMAGE = "hello-world"
-    def DOCKER_REGISTRY = "localhost:8082/repository/hello-world"
+    def DOCKER_REGISTRY = "http://localhost:8081/repository/hello-world/"
     def NEXUS_CREDENTIALS = credentials('nexus') 
     def GIT_REPO = 'https://github.com/chiragaiml21/jenkins-cicd.git'
 
@@ -11,7 +11,7 @@ node {
     stage('Build Docker image') {
         docker.build("${DOCKER_IMAGE}:latest", "-f Dockerfile .")
     }
-
+s
     stage('Push Docker image to Nexus') {
         script {
             docker.withRegistry("http://${DOCKER_REGISTRY}", "${NEXUS_CREDENTIALS}") {
