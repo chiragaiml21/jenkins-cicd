@@ -1,6 +1,6 @@
 node {
     def DOCKER_IMAGE = "hello-world"
-    def DOCKER_REGISTRY = "localhost:8081/repository/hello-world/"
+    def DOCKER_REGISTRY = "localhost:8081/#browse/browse:hello-world"
     def NEXUS_CREDENTIALS = 'nexus' 
     def GIT_REPO = 'https://github.com/chiragaiml21/jenkins-cicd.git'
 
