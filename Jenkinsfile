@@ -9,11 +9,7 @@ node {
     }
 
     stage('Build Docker image') {
-        steps {
-            script {
-                docker.build("${DOCKER_IMAGE}:latest", "-f Dockerfile .")
-            }
-        }
+        docker.build("${DOCKER_IMAGE}:latest", "-f Dockerfile .")
     }
 
     stage('Push Docker image to Nexus') {
