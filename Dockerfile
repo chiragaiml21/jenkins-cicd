@@ -1,12 +1,12 @@
-FROM node
+FROM node:14
 
-COPY package.json package.json
+WORKDIR /usr/src/app
+
+COPY package*.json ./
 RUN npm install
-COPY package-lock.json package-lock.json
 
-COPY index.js index.js
+COPY . .
 
 EXPOSE 3000
 
-ENTRYPOINT ["node", "index.js"]
-
+CMD ["node", "index.js"]
