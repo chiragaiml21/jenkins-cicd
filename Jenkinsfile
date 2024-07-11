@@ -14,12 +14,11 @@ node {
     }
 
     stage('Push Docker image to Nexus') {
-        script {
-            docker.withRegistry("http://${DOCKER_REGISTRY}", "${NEXUS_CREDENTIALS}") {
-                docker.image("${DOCKER_IMAGE}:latest").push()
-            }
+        docker.withRegistry('http://localhost:8081', "${NEXUS_CREDENTIALS}") {
+            docker.image("${DOCKER_IMAGE}:latest").push()
         }
     }
+
 
     stage('Deploy to Minikube') {
         script {
