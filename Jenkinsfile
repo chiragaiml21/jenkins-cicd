@@ -4,10 +4,6 @@ node {
     def NEXUS_CREDENTIALS = 'nexus' 
     def GIT_REPO = 'https://github.com/chiragaiml21/jenkins-cicd.git'
 
-    stage('Start Minikube') {
-        bat 'minikube start'
-    }
-
     stage('Clone repository') {
         checkout([$class: 'GitSCM', branches: [[name: '*/main']], userRemoteConfigs: [[url: GIT_REPO]]])
     }
@@ -30,10 +26,6 @@ node {
         script {
             bat 'kubectl apply -f deployment.yaml'
         }
-        echo "Deployment Successfull"
-    }
-
-    stage('Stop Minikube') {
-        sh 'minikube stop'
+        echo "Deployment Successfull....."
     }
 }
