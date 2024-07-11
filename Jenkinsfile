@@ -19,6 +19,7 @@ node {
                 docker.image("${DOCKER_IMAGE}:latest").push()
             }
         }
+        echo "Successfully pushed to nexus repository"
     }
 
     stage('Deploy to Minikube') {
