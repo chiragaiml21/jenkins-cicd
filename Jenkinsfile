@@ -10,6 +10,7 @@ node {
 
     stage('Build Docker image') {
         docker.build("${DOCKER_IMAGE}:latest", "-f Dockerfile .")
+        echo "Build Successfull......"
     }
 s
     stage('Push Docker image to Nexus') {
