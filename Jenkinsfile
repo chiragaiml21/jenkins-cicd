@@ -1,7 +1,7 @@
 node {
     def DOCKER_IMAGE = "hello-world"
     def DOCKER_REGISTRY = "http://localhost:8081/repository/hello-world"
-    def NEXUS_CREDENTIALS = credentials('nexus') 
+    def NEXUS_CREDENTIALS = 'nexus' 
     def GIT_REPO = 'https://github.com/chiragaiml21/jenkins-cicd.git'
 
     stage('Clone repository') {
