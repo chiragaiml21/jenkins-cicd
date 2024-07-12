@@ -22,24 +22,9 @@ node {
         echo "Successfully pushed to nexus repository"
     }
 
-    stage('Debug') {
-    script {
-        bat 'echo %USERPROFILE%'
-        bat 'echo %KUBECONFIG%'
-        bat 'kubectl version --context=minikube'
-        bat 'kubectl cluster-info --context=minikube'
-        bat 'kubectl get pods --context=minikube --all-namespaces'
-    }
-}
-
     stage('Deploy to Minikube') {
         script {
-            script {
-            bat '''
-            set KUBECONFIG=%USERPROFILE%/.kube/config
-            kubectl apply -f deployment.yaml
-            '''
-        }
+            kubernetesDeploy(configs: "deployment.yaml", kubeconfigId: "kubernetes")
         }
         echo "Deployment Successfull....."
     }
