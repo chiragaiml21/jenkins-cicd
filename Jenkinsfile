@@ -1,6 +1,6 @@
 node {
-    def DOCKER_IMAGE = "hello-world"
-    def DOCKER_REGISTRY = "localhost:8082/repository/poc_helloworld"
+    def DOCKER_IMAGE = "poc-helloworld"
+    def DOCKER_REGISTRY = "localhost:8082/repository/poc-helloworld"
     def NEXUS_CREDENTIALS = 'nexus'
     def GIT_REPO = 'https://github.com/chiragaiml21/jenkins-cicd.git'
     def KUBE_CONFIG_PATH = "C:\\Users\\Chirag\\.kube\\config"
