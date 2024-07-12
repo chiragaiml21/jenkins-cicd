@@ -22,6 +22,13 @@ node {
         echo "Successfully pushed to nexus repository"
     }
 
+    stage('Debug') {
+    script {
+        def kubeconfigPath = credentials('kubernetes').toString()
+        echo "Using kubeconfig file: ${kubeconfigPath}"
+    }
+}
+
     stage('Deploy to Minikube') {
         script {
             withKubeConfig([credentialsId: 'kubernetes']) {
