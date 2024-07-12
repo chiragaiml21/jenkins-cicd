@@ -10,7 +10,7 @@ node {
     }
 
     stage('Build Docker image') {
-        bat 'docker build -t hello-world:latest -f Dockerfile .'
+        bat 'docker build -t poc-helloworld:latest -f Dockerfile .'
         echo "Build Successful......"
     }
 
