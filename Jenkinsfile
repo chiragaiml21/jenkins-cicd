@@ -9,7 +9,6 @@ node {
     }
 
     stage('Build Docker image') {
-        // Use Minikube's Docker daemon and Windows command to build image
         bat 'docker build -t hello-world:latest -f Dockerfile .'
         echo "Build Successful......"
     }
@@ -23,7 +22,7 @@ node {
 
     stage('Deploy to Minikube') {
         withKubeConfig([credentialsId: 'kubernetes']) {
-            // Apply the Kubernetes deployment using kubectl
+            bat "kubectl apply -f nexus-secret.yaml"
             bat "kubectl apply -f deployment.yaml"
         }
         echo "Deployment Successful....."
