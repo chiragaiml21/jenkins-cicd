@@ -14,21 +14,17 @@ node {
     }
 
     stage('Push Docker image to Nexus') {
-        script {
             docker.withRegistry("http://${DOCKER_REGISTRY}", "${NEXUS_CREDENTIALS}") {
                 docker.image("${DOCKER_IMAGE}:latest").push()
             }
-        }
         echo "Successfully pushed to nexus repository"
     }
 
 
     stage('Deploy to Minikube') {
-        script {
-            withKubeConfig([credentialsId: 'kubernetes']) {
-                kubernetesDeploy(configs: "deployment.yaml")
+            withKubeConfig([credentialsId: 'kubernetes', ]) {
+                bat "kubectl apply -f deployment.yaml"
             }
-        }
         echo "Deployment Successfull....."
     }
 }
