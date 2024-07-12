@@ -21,7 +21,7 @@ node {
     }
 
     stage('Deploy to Minikube') {
-        withKubeConfig([credentialsId: 'kubernetes', serverUrl: 'https://127.0.0.1:57334']) {
+        withKubeConfig([credentialsId: 'kubernetes']) {
             bat "kubectl apply -f deployment.yaml"
         }
 
