@@ -21,7 +21,7 @@ node {
     }
 
     stage('Deploy to Minikube') {
-        withKubeConfig([credentialsId: 'kubectl', serverUrl: 'https://127.0.0.1:55519']) {
+        withKubeConfig([credentialsId: 'kubernetes', serverUrl: 'https://127.0.0.1:55519']) {
             bat "kubectl apply -f nexus-secret.yaml"
             bat "kubectl apply -f deployment.yaml"
         }
