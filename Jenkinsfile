@@ -26,7 +26,7 @@ node {
         script {
             script {
             bat '''
-            set KUBECONFIG=%USERPROFILE%\.kube\config
+            set KUBECONFIG=%USERPROFILE%/.kube/config
             kubectl apply -f deployment.yaml
             '''
         }
