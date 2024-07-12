@@ -10,7 +10,7 @@ node {
 
     stage('Build Docker image') {
         // Use Minikube's Docker daemon and Windows command to build image
-        bat 'docker build -t %DOCKER_IMAGE%:latest -f Dockerfile .'
+        bat 'docker build -t hello-world:latest -f Dockerfile .'
         echo "Build Successful......"
     }
 
