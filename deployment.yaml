@@ -14,9 +14,11 @@ spec:
     spec:
       containers:
       - name: hello-world
-        image: localhost:8082/repository/hello-world/v2/hello-world:latest
+        image: 10.110.167.43:8082/repository/hello-world/hello-world:latest
         ports:
         - containerPort: 5000
+      imagePullSecrets:
+      - name: nexus-credentials
 ---
 apiVersion: v1
 kind: Service
