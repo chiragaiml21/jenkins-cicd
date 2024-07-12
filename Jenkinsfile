@@ -24,7 +24,7 @@ node {
 
     stage('Deploy to Minikube') {
         script {
-            bat 'kubectl apply -f deployment.yaml --validate=false'
+            kubernetesDeploy(configs: 'deployment.yaml' kubeconfigId: 'kebernetes')
         }
         echo "Deployment Successfull....."
     }
