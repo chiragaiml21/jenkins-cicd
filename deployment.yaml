@@ -1,32 +1,30 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: hello-world
+  name: poc_helloworld
 spec:
   replicas: 1
   selector:
     matchLabels:
-      app: hello-world
+      app: poc_helloworld
   template:
     metadata:
       labels:
-        app: hello-world
+        app: poc_helloworld
     spec:
       containers:
-      - name: hello-world
-        image: localhost:8082/repository/hello-world/hello-world:latest
-        ports:
-        - containerPort: 5000
+      - name: poc_helloworld
+        image: poc_helloworld:latest
       imagePullSecrets:
-      - name: nexus-credentials
+      - name: nexus-secret
 ---
 apiVersion: v1
 kind: Service
 metadata:
-  name: hello-world
+  name: poc_helloworld
 spec:
   selector:
-    app: hello-world
+    app: poc_helloworld
   ports:
   - protocol: TCP
     port: 80
