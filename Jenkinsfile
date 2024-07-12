@@ -25,8 +25,8 @@ node {
 
     stage('Deploy to Minikube') {
         script {
-            withKubeConfig([credentialsId: 'kubernetes', kubeconfigFile: '%USERPROFILE%/.kube/congig']) {
-                kubernetesDeploy(yaml: "deployment.yaml")
+            withKubeConfig([credentialsId: 'kubernetes']) {
+                kubernetesDeploy(configs: "deployment.yaml")
             }
         }
         echo "Deployment Successfull....."
