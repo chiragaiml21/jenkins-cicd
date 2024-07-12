@@ -54,7 +54,7 @@ users:
 
     stage('Deploy to Minikube') {
         withKubeConfig([credentialsId: 'kubernetes', serverUrl: 'https://127.0.0.1:51520', config: KUBE_CONFIG]) {
-            bat "kubectl apply -f deployment.yaml --validate=false"
+            bat "kubectl apply -f deployment.yaml"
         }
         echo "Deployment Successful....."
     }
