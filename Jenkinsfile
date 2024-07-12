@@ -24,7 +24,7 @@ node {
 
     stage('Deploy to Minikube') {
         script {
-            bat 'kubectl apply -f deployment.yaml'
+            bat 'kubectl apply -f deployment.yaml --validate=false'
         }
         echo "Deployment Successfull....."
     }

@@ -14,7 +14,7 @@ spec:
     spec:
       containers:
       - name: hello-world
-        image: localhost:8082/repository/docker-hosted/hello-world:latest
+        image: localhost:8082/repository/hello-world/v2/hello-world:latest
         ports:
         - containerPort: 5000
 ---
