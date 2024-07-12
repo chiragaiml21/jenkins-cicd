@@ -24,7 +24,7 @@ node {
 
     stage('Deploy to Minikube') {
         script {
-            kubernetesDeploy(configs: 'deployment.yaml', kubeconfigId: 'kebernetes')
+            kubernetesDeploy(configs: "deployment.yaml", kubeconfigId: "kubernetes")
         }
         echo "Deployment Successfull....."
     }
